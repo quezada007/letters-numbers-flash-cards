@@ -1,0 +1,19 @@
+.container {
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 12px;
+
+    @include bp(sm) {
+        padding: 0 15px;
+        max-width: 1380px;
+    }
+
+    @include bp(md) {
+        padding: 0 20px;
+    }
+
+    @include bp(xl) {
+        padding: 0;
+        max-width: 1380px;
+    }
+}

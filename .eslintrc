@@ -1,0 +1,27 @@
+{
+    "env": {
+        "browser": true,
+        "node": true,
+        "commonjs": true,
+        "es6": true,
+        "jest/globals": true
+    },
+    "plugins": ["jest"],
+    "extends": ["airbnb", "plugin:jest/recommended"],
+    "parser": "babel-eslint",
+    "rules": {
+        "indent": ["warn", 4],
+        "eol-last": "off",
+        "max-len": "off",
+        "comma-dangle": ["error", "never"],
+        "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+        "react/jsx-indent": ["warn", 4],
+        "react/jsx-indent-props": ["error", 4],
+        "react/prop-types": "warn",
+        "jsx-a11y/label-has-associated-control": [ 2, {
+            "labelComponents": ["label"],
+            "labelAttributes": ["htmlFor"],
+            "controlComponents": ["input"]
+        }]
+    }
+}

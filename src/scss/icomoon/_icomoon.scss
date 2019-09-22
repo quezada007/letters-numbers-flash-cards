@@ -1,0 +1,243 @@
+$icomoon-root: '../fonts/' !default;
+
+@font-face {
+    font-family: 'icomoon';
+    src: url($icomoon-root + 'icomoon.eot?r8x9k0');
+    src: url($icomoon-root + 'icomoon.eot?r8x9k0#iefix') format('embedded-opentype'),
+        url($icomoon-root + 'icomoon.ttf?r8x9k0') format('truetype'),
+        url($icomoon-root + 'icomoon.woff?r8x9k0') format('woff'),
+        url($icomoon-root + 'icomoon.svg?r8x9k0#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon {
+
+    &-plus:before {
+        content: "\f067";
+    }
+
+    &-minus:before {
+        content: "\f068";
+    }
+
+    &-search:before {
+        content: "\f002";
+    }
+
+    &-heart:before {
+        content: "\f004";
+    }
+
+    &-star:before {
+        content: "\f005";
+    }
+
+    &-star-o:before {
+        content: "\f006";
+    }
+
+    &-check:before {
+        content: "\f00c";
+    }
+
+    &-close:before {
+        content: "\f00d";
+    }
+
+    &-remove:before {
+        content: "\f00d";
+    }
+
+    &-times:before {
+        content: "\f00d";
+    }
+
+    &-cog:before {
+        content: "\f013";
+    }
+
+    &-gear:before {
+        content: "\f013";
+    }
+
+    &-trash-o:before {
+        content: "\f014";
+    }
+
+    &-home:before {
+        content: "\f015";
+    }
+
+    &-map-marker:before {
+        content: "\f041";
+    }
+
+    &-edit:before {
+        content: "\f044";
+    }
+
+    &-pencil-square-o:before {
+        content: "\f044";
+    }
+
+    &-check-square-o:before {
+        content: "\f046";
+    }
+
+    &-chevron-left:before {
+        content: "\f053";
+    }
+
+    &-chevron-right:before {
+        content: "\f054";
+    }
+
+    &-plus-circle:before {
+        content: "\f055";
+    }
+
+    &-minus-circle:before {
+        content: "\f056";
+    }
+
+    &-times-circle:before {
+        content: "\f057";
+    }
+
+    &-check-circle:before {
+        content: "\f058";
+    }
+
+    &-info-circle:before {
+        content: "\f05a";
+    }
+
+    &-times-circle-o:before {
+        content: "\f05c";
+    }
+
+    &-check-circle-o:before {
+        content: "\f05d";
+    }
+
+    &-expand:before {
+        content: "\f065";
+    }
+
+    &-compress:before {
+        content: "\f066";
+    }
+
+    &-calendar:before {
+        content: "\f073";
+    }
+
+    &-chevron-up:before {
+        content: "\f077";
+    }
+
+    &-chevron-down:before {
+        content: "\f078";
+    }
+
+    &-shopping-cart:before {
+        content: "\f07a";
+    }
+
+    &-heart-o:before {
+        content: "\f08a";
+    }
+
+    &-sign-out:before {
+        content: "\f08b";
+    }
+
+    &-external-link:before {
+        content: "\f08e";
+    }
+
+    &-sign-in:before {
+        content: "\f090";
+    }
+
+    &-bars:before {
+        content: "\f0c9";
+    }
+
+    &-navicon:before {
+        content: "\f0c9";
+    }
+
+    &-reorder:before {
+        content: "\f0c9";
+    }
+
+    &-sort:before {
+        content: "\f0dc";
+    }
+
+    &-unsorted:before {
+        content: "\f0dc";
+    }
+
+    &-sort-desc:before {
+        content: "\f0dd";
+    }
+
+    &-sort-down:before {
+        content: "\f0dd";
+    }
+
+    &-sort-asc:before {
+        content: "\f0de";
+    }
+
+    &-sort-up:before {
+        content: "\f0de";
+    }
+
+    &-sort-alpha-asc:before {
+        content: "\f15d";
+    }
+
+    &-sort-alpha-desc:before {
+        content: "\f15e";
+    }
+
+    &-sort-amount-asc:before {
+        content: "\f160";
+    }
+
+    &-sort-amount-desc:before {
+        content: "\f161";
+    }
+
+    &-long-arrow-left:before {
+        content: "\f177";
+    }
+
+    &-long-arrow-right:before {
+        content: "\f178";
+    }
+
+    &-trash:before {
+        content: "\f1f8";
+    }
+}

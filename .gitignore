@@ -1,0 +1,32 @@
+# Ignore hidden folders
+.*/
+
+# Ignore Node Modules
+node_modules
+
+# Ignore Build Folder
+dist
+build
+public
+
+# Code Coverage files
+coverage
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# OSX
+._*
+.AppleDouble
+.DS_Store
+.localized
+.LSOverride
+.Spotlight-V100
+.Trashes
+
+# Windows
+Desktop.ini
+ehthumbs.db
+Thumbs.db

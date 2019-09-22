@@ -1,0 +1,28 @@
+/**
+ * Get the color hex number by passing the color name
+ */
+@function color($key) {
+    @if map-has-key($colors, $key) {
+        @return map-get($colors, $key);
+    }
+
+    @warn "Unknown `#{$key}` in $colors.";
+    @return null;
+}
+
+/**
+ * Apply a box shadow by passing the box shadow name
+ */
+@function shadow($key) {
+    @if map-has-key($shadows, $key) {
+        @return unquote(map-get($shadows, $key));
+    }
+
+    @warn "Unknown `#{$key}` in $shadows.";
+    @return null;
+}
+
+// converts px to rem
+@function rem($px:16, $base:16) {
+    @return ($px/$base) * 1rem;
+}

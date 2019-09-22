@@ -1,0 +1,57 @@
+@import '../../../node_modules/breakpoint-sass/stylesheets/breakpoint';
+
+// Breakpoints
+@mixin bp($breakpoint) {
+    @if (type-of($breakpoint)=='list') {
+        $bp: '';
+
+        @if map-has-key($breakpoints, nth($breakpoint, 1)) {
+
+            $bp: map-get($breakpoints, nth($breakpoint, 1));
+        }
+
+        @else {
+            $bp: nth($breakpoint, 1);
+        }
+
+        @if map-has-key($breakpoints, nth($breakpoint, 2)) {
+            $bp: append($bp, map-get($breakpoints, nth($breakpoint, 2)));
+        }
+
+        @else {
+            $bp: append($bp, nth($breakpoint, 2));
+        }
+
+        @include breakpoint($bp) {
+            @content;
+        }
+    }
+
+    @if (type-of($breakpoint)=='string') {
+        @if map-has-key($breakpoints, $breakpoint) {
+            @include breakpoint(map-get($breakpoints, $breakpoint)) {
+                @content;
+            }
+        }
+    }
+}
+
+// Buttons
+@mixin button($bg-color:color(red), $color:color(white)) {
+    border: none;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+    vertical-align: middle;
+    font-family: $font-family--secondary;
+    font-weight: bold;
+    font-size: rem(14);
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 1.5px;
+    color: $color;
+    background-color: $bg-color;
+    text-transform: uppercase;
+    outline: none;
+}

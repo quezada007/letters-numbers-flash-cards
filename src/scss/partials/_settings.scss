@@ -1,0 +1,51 @@
+// Colors
+$colors: (
+    // text colors
+    text: #333333,
+    // other colors
+    black: #000000,
+    white: #FFFFFF,
+    red: #DA291C
+);
+
+$breakpoints: (
+    xxs: 375px,
+    xs: 576px,
+    sm: 768px,
+    md: 1024px,
+    lg: 1280px,
+    xl: 1440px,
+    xxl: 1690px
+);
+
+// Font Imports
+$font-imports: (
+    'https://fonts.googleapis.com/css?family=Open+Sans'
+);
+
+// Local Fonts
+$local-fonts: (
+    // Secondary font
+    'Oswald': (
+        // Normal font
+        (
+            'font': Oswald-Regular,
+            'weight': normal,
+            'style': normal
+        ),
+        (
+            'font': Oswald-Bold,
+            'weight': bold,
+            'style': normal
+        )
+    )
+);
+
+// Fonts
+$font-family--primary: 'Open Sans', sans-serif;
+$font-family--secondary: Oswald, sans-serif, sans-serif;
+
+// Shadow Styles
+$shadows: (
+    button: '0 10px 15px 0 rgba(0, 0, 0, 0.1)'
+);

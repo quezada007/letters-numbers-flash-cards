@@ -1,0 +1,64 @@
+.cards {
+    &__heading {
+        text-align: center;
+    }
+
+    &__card {
+        box-shadow: shadow(card);
+        border-radius: 20px;
+        border: 1px solid color(light-gray);
+        padding: 20px 0 40px;
+        text-align: center;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        width: 300px;
+        margin: 0 auto;
+    }
+
+    &__number {
+        font-size: rem(220);
+        line-height: 300px;
+
+        &--3-digits {
+            font-size: rem(170);
+        }
+    }
+
+    &__number-word {
+        font-size: rem(35);
+        font-weight: bold;
+        line-height: 35px;
+    }
+
+    &__upper-case-letter {
+        font-size: rem(200);
+    }
+
+    &__lower-case-letter {
+        font-size: rem(150);
+        line-height: 110px;
+    }
+
+    &__btn-container {
+        width: 300px;
+        margin: 30px auto;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__btn {
+        border: none;
+        background-color: color(text);
+        color: color(white);
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: rem(40);
+        width: 70px;
+    }
+}

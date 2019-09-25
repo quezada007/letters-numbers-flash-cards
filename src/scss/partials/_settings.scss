@@ -5,7 +5,9 @@ $colors: (
     // other colors
     black: #000000,
     white: #FFFFFF,
-    red: #DA291C
+    red: #DA291C,
+    blue: #007BFF,
+    light-gray: #CCCCCC
 );
 
 $breakpoints: (
@@ -20,32 +22,18 @@ $breakpoints: (
 
 // Font Imports
 $font-imports: (
-    'https://fonts.googleapis.com/css?family=Open+Sans'
+    'https://fonts.googleapis.com/css?family=Manjari:400,700&display=swap'
 );
 
 // Local Fonts
 $local-fonts: (
-    // Secondary font
-    'Oswald': (
-        // Normal font
-        (
-            'font': Oswald-Regular,
-            'weight': normal,
-            'style': normal
-        ),
-        (
-            'font': Oswald-Bold,
-            'weight': bold,
-            'style': normal
-        )
-    )
 );
 
 // Fonts
-$font-family--primary: 'Open Sans', sans-serif;
-$font-family--secondary: Oswald, sans-serif, sans-serif;
+$font-family--primary: 'Manjari', sans-serif;
 
 // Shadow Styles
 $shadows: (
-    button: '0 10px 15px 0 rgba(0, 0, 0, 0.1)'
+    button: '0 10px 15px 0 rgba(0, 0, 0, 0.1)',
+    card: '0 4px 30px 0 rgba(0,0,0,.08), 0 6px 12px 0 rgba(0,0,0,.18)'
 );

@@ -40,7 +40,7 @@ export default class Letters extends React.Component {
                     <div className="cards__upper-case-letter">{letters[currentLanguage][currentLetter].upperCase}</div>
                     <div className="cards__lower-case-letter">{letters[currentLanguage][currentLetter].lowerCase}</div>
                 </div>
-                <div className="cards__btn__container">
+                <div className="cards__btn-container">
                     <button type="button" className="cards__btn cards__btn--prev" onClick={this.prevLetter} aria-label="Previous"><i className="icon-long-arrow-left" /></button>
                     <button type="button" className="cards__btn cards__btn--next" onClick={this.nextLetter} aria-label="Next"><i className="icon-long-arrow-right" /></button>
                 </div>

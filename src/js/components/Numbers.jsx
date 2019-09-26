@@ -11,18 +11,28 @@ export default class Numbers extends React.Component {
         };
     }
 
+    speak = (newNumber) => {
+        const { msg } = this.props;
+        msg.text = newNumber;
+        speechSynthesis.speak(msg);
+    }
+
     prevNumber = () => {
         const { currentNumber } = this.state;
+        const newNumber = currentNumber <= 1 ? numbersAmount : currentNumber - 1;
         this.setState({
-            currentNumber: currentNumber <= 1 ? numbersAmount : currentNumber - 1
+            currentNumber: newNumber
         });
+        this.speak(newNumber);
     }
 
     nextNumber = () => {
         const { currentNumber } = this.state;
+        const newNumber = currentNumber >= numbersAmount ? 1 : currentNumber + 1;
         this.setState({
-            currentNumber: currentNumber >= numbersAmount ? 1 : currentNumber + 1
+            currentNumber: newNumber
         });
+        this.speak(newNumber);
     }
 
     render() {
@@ -47,5 +57,6 @@ export default class Numbers extends React.Component {
 }
 
 Numbers.propTypes = {
-    currentLanguage: PropTypes.string.isRequired
+    currentLanguage: PropTypes.string.isRequired,
+    msg: PropTypes.instanceOf(SpeechSynthesisUtterance).isRequired
 };

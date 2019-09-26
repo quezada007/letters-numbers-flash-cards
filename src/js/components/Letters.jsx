@@ -11,22 +11,32 @@ export default class Letters extends React.Component {
         };
     }
 
+    speak = (newLetter) => {
+        const { msg } = this.props;
+        msg.text = newLetter;
+        speechSynthesis.speak(msg);
+    }
+
     prevLetter = () => {
         const { currentLetter } = this.state;
         const { currentLanguage } = this.props;
         const maxLetters = letters[currentLanguage].length - 1;
+        const newLetter = currentLetter <= 0 ? maxLetters : currentLetter - 1;
         this.setState({
-            currentLetter: currentLetter <= 0 ? maxLetters : currentLetter - 1
+            currentLetter: newLetter
         });
+        this.speak(letters[currentLanguage][newLetter].upperCase);
     }
 
     nextLetter = () => {
         const { currentLetter } = this.state;
         const { currentLanguage } = this.props;
         const maxLetters = letters[currentLanguage].length - 1;
+        const newLetter = currentLetter >= maxLetters ? 0 : currentLetter + 1;
         this.setState({
-            currentLetter: currentLetter >= maxLetters ? 0 : currentLetter + 1
+            currentLetter: newLetter
         });
+        this.speak(letters[currentLanguage][newLetter].upperCase);
     }
 
     render() {
@@ -50,5 +60,6 @@ export default class Letters extends React.Component {
 }
 
 Letters.propTypes = {
-    currentLanguage: PropTypes.string.isRequired
+    currentLanguage: PropTypes.string.isRequired,
+    msg: PropTypes.instanceOf(SpeechSynthesisUtterance).isRequired
 };

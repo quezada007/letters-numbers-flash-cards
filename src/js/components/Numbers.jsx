@@ -11,6 +11,12 @@ export default class Numbers extends React.Component {
         };
     }
 
+    componentDidMount() {
+        const { currentNumber } = this.state;
+        const { currentLanguage } = this.props;
+        this.speak(numbers[currentLanguage][currentNumber]);
+    }
+
     speak = (newNumber) => {
         const { msg } = this.props;
         msg.text = newNumber;

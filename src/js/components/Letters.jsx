@@ -11,6 +11,12 @@ export default class Letters extends React.Component {
         };
     }
 
+    componentDidMount() {
+        const { currentLetter } = this.state;
+        const { currentLanguage } = this.props;
+        this.speak(letters[currentLanguage][currentLetter].upperCase);
+    }
+
     speak = (newLetter) => {
         const { msg } = this.props;
         msg.text = newLetter;

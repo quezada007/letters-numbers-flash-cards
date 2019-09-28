@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Hammer from 'hammerjs';
 import letters from '../lib/letters';
 
 export default class Letters extends React.Component {
@@ -15,6 +16,17 @@ export default class Letters extends React.Component {
         const { currentLetter } = this.state;
         const { currentLanguage } = this.props;
         this.speak(letters[currentLanguage][currentLetter].upperCase);
+        this.addGestures();
+    }
+
+    addGestures = () => {
+        const mc = new Hammer.Manager(document.getElementById('cards__card--letters'));
+        const swipe = new Hammer.Swipe();
+        mc.add(swipe);
+        // Show the Next Slide
+        mc.on('swipeleft', () => this.nextLetter());
+        // Show the Previous Slide
+        mc.on('swiperight', () => this.prevLetter());
     }
 
     speak = (newLetter) => {
@@ -52,7 +64,7 @@ export default class Letters extends React.Component {
         return (
             <div className="cards cards--letters">
                 <h1 className="cards__heading">{heading}</h1>
-                <div className="cards__card">
+                <div id="cards__card--letters" className="cards__card">
                     <div className="cards__upper-case-letter">{letters[currentLanguage][currentLetter].upperCase}</div>
                     <div className="cards__lower-case-letter">{letters[currentLanguage][currentLetter].lowerCase}</div>
                 </div>

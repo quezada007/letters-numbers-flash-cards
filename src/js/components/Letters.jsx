@@ -15,7 +15,7 @@ export default class Letters extends React.Component {
     componentDidMount() {
         const { currentLetter } = this.state;
         const { currentLanguage } = this.props;
-        this.speak(letters[currentLanguage][currentLetter].upperCase);
+        this.speak(letters[currentLanguage][currentLetter].lowerCase);
         this.addGestures();
     }
 
@@ -43,7 +43,7 @@ export default class Letters extends React.Component {
         this.setState({
             currentLetter: newLetter
         });
-        this.speak(letters[currentLanguage][newLetter].upperCase);
+        this.speak(letters[currentLanguage][newLetter].lowerCase);
     }
 
     nextLetter = () => {
@@ -54,7 +54,7 @@ export default class Letters extends React.Component {
         this.setState({
             currentLetter: newLetter
         });
-        this.speak(letters[currentLanguage][newLetter].upperCase);
+        this.speak(letters[currentLanguage][newLetter].lowerCase);
     }
 
     render() {

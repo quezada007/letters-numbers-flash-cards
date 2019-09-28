@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Hammer from 'hammerjs';
 import { numbers, numbersAmount } from '../lib/numbers';
 
 export default class Numbers extends React.Component {
@@ -15,6 +16,17 @@ export default class Numbers extends React.Component {
         const { currentNumber } = this.state;
         const { currentLanguage } = this.props;
         this.speak(numbers[currentLanguage][currentNumber]);
+        this.addGestures();
+    }
+
+    addGestures = () => {
+        const mc = new Hammer.Manager(document.getElementById('cards__card--numbers'));
+        const swipe = new Hammer.Swipe();
+        mc.add(swipe);
+        // Show the Next Slide
+        mc.on('swipeleft', () => this.nextNumber());
+        // Show the Previous Slide
+        mc.on('swiperight', () => this.prevNumber());
     }
 
     speak = (newNumber) => {
@@ -49,7 +61,7 @@ export default class Numbers extends React.Component {
         return (
             <div className="cards cards--numbers">
                 <h1 className="cards__heading">{heading}</h1>
-                <div className="cards__card">
+                <div id="cards__card--numbers" className="cards__card">
                     <div className={digitsClass}>{currentNumber}</div>
                     <div className="cards__number-word">{numbers[currentLanguage][currentNumber]}</div>
                 </div>

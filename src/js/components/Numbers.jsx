@@ -58,10 +58,11 @@ export default class Numbers extends React.Component {
         const { currentLanguage } = this.props;
         const heading = currentLanguage === 'english' ? 'Numbers in English' : 'Números en Español';
         const digitsClass = currentNumber > 99 ? 'cards__number cards__number--3-digits' : 'cards__number';
+        const cardClass = `cards__card cards__card--${currentNumber % 14}`;
         return (
             <div className="cards cards--numbers">
                 <h1 className="cards__heading">{heading}</h1>
-                <div id="cards__card--numbers" className="cards__card">
+                <div id="cards__card--numbers" className={cardClass}>
                     <div className={digitsClass}>{currentNumber}</div>
                     <div className="cards__number-word">{numbers[currentLanguage][currentNumber]}</div>
                 </div>

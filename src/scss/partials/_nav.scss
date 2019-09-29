@@ -1,0 +1,18 @@
+.nav {
+    background-color: color(nav);
+    color: color(white);
+    padding: 10px 0;
+    font-size: rem(18);
+    position: relative;
+
+    &__back {
+        color: color(white);
+        text-decoration: none;
+        position: absolute;
+        left: 10px;
+    }
+
+    &__language {
+        text-align: center;
+    }
+}

@@ -61,10 +61,11 @@ export default class Letters extends React.Component {
         const { currentLetter } = this.state;
         const { currentLanguage } = this.props;
         const heading = currentLanguage === 'english' ? 'Letters in English' : 'Letras en Español';
+        const cardClass = `cards__card cards__card--${currentLetter % 14}`;
         return (
             <div className="cards cards--letters">
                 <h1 className="cards__heading">{heading}</h1>
-                <div id="cards__card--letters" className="cards__card">
+                <div id="cards__card--letters" className={cardClass}>
                     <div className="cards__upper-case-letter">{letters[currentLanguage][currentLetter].upperCase}</div>
                     <div className="cards__lower-case-letter">{letters[currentLanguage][currentLetter].lowerCase}</div>
                 </div>

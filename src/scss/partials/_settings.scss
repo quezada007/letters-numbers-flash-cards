@@ -1,4 +1,6 @@
 // Colors
+$primaryColor: #336699;
+
 $colors: (
     // text colors
     text: #333333,
@@ -7,7 +9,9 @@ $colors: (
     white: #FFFFFF,
     red: #DA291C,
     blue: #007BFF,
-    light-gray: #CCCCCC
+    light-gray: #CCCCCC,
+    nav: $primaryColor,
+    button: $primaryColor
 );
 
 $breakpoints: (

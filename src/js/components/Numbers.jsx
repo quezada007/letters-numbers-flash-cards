@@ -56,7 +56,7 @@ export default class Numbers extends React.Component {
     render() {
         const { currentNumber } = this.state;
         const { currentLanguage } = this.props;
-        const heading = currentLanguage === 'english' ? 'Numbers in English' : 'Numeros en Español';
+        const heading = currentLanguage === 'english' ? 'Numbers in English' : 'Números en Español';
         const digitsClass = currentNumber > 99 ? 'cards__number cards__number--3-digits' : 'cards__number';
         return (
             <div className="cards cards--numbers">

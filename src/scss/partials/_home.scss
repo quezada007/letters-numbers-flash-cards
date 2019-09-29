@@ -1,0 +1,12 @@
+.home {
+    &__btns {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    &__btn {
+        min-width: 150px;
+        margin: 20px 0 0;
+    }
+}

@@ -1,7 +1,10 @@
 import { hot } from 'react-hot-loader/root';
 import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Nav from './Nav';
+import Home from './Home';
 import Letters from './Letters';
-// import Numbers from './Numbers';
+import Numbers from './Numbers';
 
 class App extends React.Component {
     language = {
@@ -10,8 +13,14 @@ class App extends React.Component {
     };
 
     voice = {
-        english: 'Google US English',
-        spanish: 'Google español de Estados Unidos'
+        english: {
+            name: 'Google US English',
+            lang: 'en-US'
+        },
+        spanish: {
+            name: 'Google español de Estados Unidos',
+            lang: 'es-US'
+        }
     }
 
     constructor(props) {
@@ -27,24 +36,30 @@ class App extends React.Component {
 
     changeVoice = (currentLanguage) => {
         const currentVoice = this.voice[currentLanguage];
-        [this.msg.voice] = speechSynthesis.getVoices().filter((voice) => voice.name === currentVoice);
+        [this.msg.voice] = speechSynthesis.getVoices().filter((voice) => voice.name === currentVoice.name);
+        this.msg.lang = this.voice[currentLanguage].lang;
     }
 
     changeLanguage = () => {
         const { currentLanguage } = this.state;
+        const newLanguage = currentLanguage === 'english' ? 'spanish' : 'english';
         this.setState({
-            currentLanguage: currentLanguage === 'english' ? 'spanish' : 'english'
+            currentLanguage: newLanguage
         });
-        this.changeVoice(currentLanguage);
+        this.changeVoice(newLanguage);
     }
 
     render() {
         const { currentLanguage } = this.state;
         return (
-            <>
-                <Letters currentLanguage={currentLanguage} changeLanguage={this.changeLanguage} msg={this.msg} />
-                {/* <Numbers currentLanguage={currentLanguage} changeLanguage={this.changeLanguage} msg={this.msg} /> */}
-            </>
+            <Router>
+                <Nav currentLanguage={this.language[currentLanguage]} />
+                <main className="container">
+                    <Route path="/" exact render={() => <Home currentLanguage={currentLanguage} changeLanguage={this.changeLanguage} />} />
+                    <Route path="/letters" render={() => <Letters currentLanguage={currentLanguage} changeLanguage={this.changeLanguage} msg={this.msg} />} />
+                    <Route path="/numbers" render={() => <Numbers currentLanguage={currentLanguage} changeLanguage={this.changeLanguage} msg={this.msg} />} />
+                </main>
+            </Router>
         );
     }
 }

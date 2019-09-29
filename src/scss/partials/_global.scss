@@ -16,3 +16,7 @@ body {
     line-height: normal;
     color: color(text);
 }
+
+.button {
+    @include button();
+}

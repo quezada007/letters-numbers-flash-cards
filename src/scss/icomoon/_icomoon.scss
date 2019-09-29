@@ -85,6 +85,18 @@ $icomoon-root: '../fonts/' !default;
         content: "\f015";
     }
 
+    &-volume-off:before {
+        content: "\f026";
+    }
+
+    &-volume-down:before {
+        content: "\f027";
+    }
+
+    &-volume-up:before {
+        content: "\f028";
+    }
+
     &-map-marker:before {
         content: "\f041";
     }

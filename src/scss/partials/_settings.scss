@@ -9,9 +9,32 @@ $colors: (
     white: #FFFFFF,
     red: #DA291C,
     blue: #007BFF,
+    magenta: #E6007E,
+    orange: #FF6200,
     light-gray: #CCCCCC,
+    dark-gray: #938380,
     nav: $primaryColor,
-    button: $primaryColor
+    button: $primaryColor,
+    // Crayon Colors
+    crayon-red: #EE204D,
+    crayon-yellow: #FCE883,
+    crayon-blue: #1F75FE,
+    crayon-brown: #B5674D,
+    crayon-orange: #FF7538,
+    crayon-green: #1CAC78,
+    crayon-purple: #926EAE,
+    crayon-red-violet: #C0448F,
+    crayon-red-orange: #FF5349,
+    crayon-yellow-green: #C5E384,
+    crayon-blue-violet: #7366BD,
+    crayon-carnation-pink: #FFAACC,
+    crayon-yellow-orange: #FFB653,
+    crayon-blue-green: #199EBD,
+    crayon-black: #232323,
+    crayon-magenta: #F664AF,
+    crayon-burnt-orange: #FF7F49,
+    crayon-plum: #8E4584,
+    crayon-rain-forest: #17806D
 );
 
 $breakpoints: (

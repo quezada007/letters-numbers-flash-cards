@@ -16,6 +16,62 @@
         align-items: center;
         width: 300px;
         margin: 0 auto;
+
+        &--0 {
+            color: color(crayon-red);
+        }
+
+        &--1 {
+            color: color(crayon-black);
+        }
+
+        &--2 {
+            color: color(crayon-blue);
+        }
+
+        &--3 {
+            color: color(crayon-brown);
+        }
+
+        &--4 {
+            color: color(crayon-purple);
+        }
+
+        &--5 {
+            color: color(magenta);
+        }
+
+        &--6 {
+            color: color(orange);
+        }
+
+        &--7 {
+            color: color(crayon-red-violet);
+        }
+
+        &--8 {
+            color: color(crayon-red-orange);
+        }
+
+        &--9 {
+            color: color(dark-gray);
+        }
+
+        &--10 {
+            color: color(crayon-blue-violet);
+        }
+
+        &--11 {
+            color: color(crayon-plum);
+        }
+
+        &--12 {
+            color: color(crayon-rain-forest);
+        }
+
+        &--13 {
+            color: color(crayon-blue-green);
+        }
     }
 
     &__number {
@@ -60,5 +116,9 @@
         cursor: pointer;
         font-size: rem(40);
         width: 70px;
+
+        &--volume {
+            font-size: rem(30);
+        }
     }
 }

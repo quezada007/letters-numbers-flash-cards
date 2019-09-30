@@ -30,9 +30,11 @@ export default class Numbers extends React.Component {
     }
 
     speak = (newNumber) => {
-        const { msg } = this.props;
+        const { msg, isMuted } = this.props;
         msg.text = newNumber;
-        speechSynthesis.speak(msg);
+        if (!isMuted) {
+            speechSynthesis.speak(msg);
+        }
     }
 
     prevNumber = () => {
@@ -55,10 +57,12 @@ export default class Numbers extends React.Component {
 
     render() {
         const { currentNumber } = this.state;
-        const { currentLanguage } = this.props;
+        const { currentLanguage, isMuted, toggleMute } = this.props;
         const heading = currentLanguage === 'english' ? 'Numbers in English' : 'Números en Español';
         const digitsClass = currentNumber > 99 ? 'cards__number cards__number--3-digits' : 'cards__number';
         const cardClass = `cards__card cards__card--${currentNumber % 14}`;
+        const volumeIcon = isMuted ? 'icon-volume-up' : 'icon-volume-off';
+        const ariaVolume = isMuted ? 'Volume Up' : 'Volume Off';
         return (
             <div className="cards cards--numbers">
                 <h1 className="cards__heading">{heading}</h1>
@@ -68,6 +72,7 @@ export default class Numbers extends React.Component {
                 </div>
                 <div className="cards__btn-container">
                     <button type="button" className="cards__btn cards__btn--prev" onClick={this.prevNumber} aria-label="Previous"><i className="icon-long-arrow-left" /></button>
+                    <button type="button" className="cards__btn cards__btn--volume" onClick={toggleMute} aria-label={ariaVolume}><i className={volumeIcon} /></button>
                     <button type="button" className="cards__btn cards__btn--next" onClick={this.nextNumber} aria-label="Next"><i className="icon-long-arrow-right" /></button>
                 </div>
             </div>
@@ -77,5 +82,7 @@ export default class Numbers extends React.Component {
 
 Numbers.propTypes = {
     currentLanguage: PropTypes.string.isRequired,
-    msg: PropTypes.instanceOf(SpeechSynthesisUtterance).isRequired
+    msg: PropTypes.instanceOf(SpeechSynthesisUtterance).isRequired,
+    isMuted: PropTypes.bool.isRequired,
+    toggleMute: PropTypes.func.isRequired
 };

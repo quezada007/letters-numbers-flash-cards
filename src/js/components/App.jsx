@@ -27,11 +27,19 @@ class App extends React.Component {
         super(props);
 
         this.state = {
-            currentLanguage: 'english'
+            currentLanguage: 'english',
+            isMuted: false
         };
 
         this.msg = new SpeechSynthesisUtterance();
         speechSynthesis.onvoiceschanged = () => this.changeVoice('english');
+    }
+
+    toggleMute = () => {
+        const { isMuted } = this.state;
+        this.setState({
+            isMuted: !isMuted
+        });
     }
 
     changeVoice = (currentLanguage) => {
@@ -50,14 +58,14 @@ class App extends React.Component {
     }
 
     render() {
-        const { currentLanguage } = this.state;
+        const { currentLanguage, isMuted } = this.state;
         return (
             <Router>
                 <Nav currentLanguage={this.language[currentLanguage]} />
                 <main className="container">
                     <Route path="/" exact render={() => <Home currentLanguage={currentLanguage} changeLanguage={this.changeLanguage} />} />
-                    <Route path="/letters" render={() => <Letters currentLanguage={currentLanguage} changeLanguage={this.changeLanguage} msg={this.msg} />} />
-                    <Route path="/numbers" render={() => <Numbers currentLanguage={currentLanguage} changeLanguage={this.changeLanguage} msg={this.msg} />} />
+                    <Route path="/letters" render={() => <Letters currentLanguage={currentLanguage} changeLanguage={this.changeLanguage} msg={this.msg} isMuted={isMuted} toggleMute={this.toggleMute} />} />
+                    <Route path="/numbers" render={() => <Numbers currentLanguage={currentLanguage} changeLanguage={this.changeLanguage} msg={this.msg} isMuted={isMuted} toggleMute={this.toggleMute} />} />
                 </main>
             </Router>
         );

@@ -30,9 +30,11 @@ export default class Letters extends React.Component {
     }
 
     speak = (newLetter) => {
-        const { msg } = this.props;
+        const { msg, isMuted } = this.props;
         msg.text = newLetter;
-        speechSynthesis.speak(msg);
+        if (!isMuted) {
+            speechSynthesis.speak(msg);
+        }
     }
 
     prevLetter = () => {
@@ -59,9 +61,11 @@ export default class Letters extends React.Component {
 
     render() {
         const { currentLetter } = this.state;
-        const { currentLanguage } = this.props;
+        const { currentLanguage, isMuted, toggleMute } = this.props;
         const heading = currentLanguage === 'english' ? 'Letters in English' : 'Letras en Español';
         const cardClass = `cards__card cards__card--${currentLetter % 14}`;
+        const volumeIcon = isMuted ? 'icon-volume-up' : 'icon-volume-off';
+        const ariaVolume = isMuted ? 'Volume Up' : 'Volume Off';
         return (
             <div className="cards cards--letters">
                 <h1 className="cards__heading">{heading}</h1>
@@ -71,6 +75,7 @@ export default class Letters extends React.Component {
                 </div>
                 <div className="cards__btn-container">
                     <button type="button" className="cards__btn cards__btn--prev" onClick={this.prevLetter} aria-label="Previous"><i className="icon-long-arrow-left" /></button>
+                    <button type="button" className="cards__btn cards__btn--volume" onClick={toggleMute} aria-label={ariaVolume}><i className={volumeIcon} /></button>
                     <button type="button" className="cards__btn cards__btn--next" onClick={this.nextLetter} aria-label="Next"><i className="icon-long-arrow-right" /></button>
                 </div>
             </div>
@@ -80,5 +85,7 @@ export default class Letters extends React.Component {
 
 Letters.propTypes = {
     currentLanguage: PropTypes.string.isRequired,
-    msg: PropTypes.instanceOf(SpeechSynthesisUtterance).isRequired
+    msg: PropTypes.instanceOf(SpeechSynthesisUtterance).isRequired,
+    isMuted: PropTypes.bool.isRequired,
+    toggleMute: PropTypes.func.isRequired
 };

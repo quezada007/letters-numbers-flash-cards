@@ -1,10 +1,11 @@
 import { hot } from 'react-hot-loader/root';
-import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import React, { Suspense, lazy } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Nav from './Nav';
-import Home from './Home';
-import Letters from './Letters';
-import Numbers from './Numbers';
+
+const Home = lazy(() => import('./Home'));
+const Letters = lazy(() => import('./Letters'));
+const Numbers = lazy(() => import('./Numbers'));
 
 class App extends React.Component {
     language = {
@@ -63,9 +64,13 @@ class App extends React.Component {
             <Router>
                 <Nav currentLanguage={this.language[currentLanguage]} />
                 <main className="container">
-                    <Route path="/" exact render={() => <Home currentLanguage={currentLanguage} changeLanguage={this.changeLanguage} />} />
-                    <Route path="/letters" render={() => <Letters currentLanguage={currentLanguage} changeLanguage={this.changeLanguage} msg={this.msg} isMuted={isMuted} toggleMute={this.toggleMute} />} />
-                    <Route path="/numbers" render={() => <Numbers currentLanguage={currentLanguage} changeLanguage={this.changeLanguage} msg={this.msg} isMuted={isMuted} toggleMute={this.toggleMute} />} />
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <Switch>
+                            <Route path="/" exact render={() => <Home currentLanguage={currentLanguage} changeLanguage={this.changeLanguage} />} />
+                            <Route path="/letters" render={() => <Letters currentLanguage={currentLanguage} changeLanguage={this.changeLanguage} msg={this.msg} isMuted={isMuted} toggleMute={this.toggleMute} />} />
+                            <Route path="/numbers" render={() => <Numbers currentLanguage={currentLanguage} changeLanguage={this.changeLanguage} msg={this.msg} isMuted={isMuted} toggleMute={this.toggleMute} />} />
+                        </Switch>
+                    </Suspense>
                 </main>
             </Router>
         );

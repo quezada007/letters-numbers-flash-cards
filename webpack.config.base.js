@@ -11,7 +11,7 @@ module.exports = {
      *  Entry source js files
      */
     entry: {
-        app: ['react-hot-loader/patch', './src/js/index.jsx']
+        app: ['./src/js/index.jsx']
     },
     /**
      * Output js files

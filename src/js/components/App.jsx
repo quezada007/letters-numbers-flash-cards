@@ -1,6 +1,6 @@
 import { hot } from 'react-hot-loader/root';
 import React, { Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import Nav from './Nav';
 
 const Home = lazy(() => import('./Home'));

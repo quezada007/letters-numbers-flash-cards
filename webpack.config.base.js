@@ -2,6 +2,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 // Destination directory
 const dist = 'dist';
@@ -140,6 +141,10 @@ module.exports = {
             template: './src/pug/index.pug',
             filename: 'index.html',
             inject: true
-        })
+        }),
+        new WorkboxPlugin.GenerateSW({
+            clientsClaim: true,
+            skipWaiting: true
+        }),
     ]
 }

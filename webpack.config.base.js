@@ -142,9 +142,13 @@ module.exports = {
             filename: 'index.html',
             inject: true
         }),
-        new WorkboxPlugin.GenerateSW({
+        /* new WorkboxPlugin.GenerateSW({
             clientsClaim: true,
             skipWaiting: true
-        }),
+        }) */
+        new WorkboxPlugin.InjectManifest({
+            swSrc: './sw.js',
+            swDest: 'service-worker.js'
+        })
     ]
 }

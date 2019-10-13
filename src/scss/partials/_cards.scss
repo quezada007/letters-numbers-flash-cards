@@ -7,15 +7,14 @@
         box-shadow: shadow(card);
         border-radius: 20px;
         border: 1px solid color(light-gray);
-        padding: 20px 0 40px;
         text-align: center;
         height: 400px;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
         align-items: center;
         width: 300px;
         margin: 0 auto;
+        padding: 0;
 
         &--0 {
             color: color(crayon-red);
@@ -91,6 +90,7 @@
 
     &__upper-case-letter {
         font-size: rem(200);
+        padding-top: 30px;
     }
 
     &__lower-case-letter {

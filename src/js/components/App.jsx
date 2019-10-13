@@ -15,12 +15,12 @@ class App extends React.Component {
 
     voice = {
         english: {
-            name: 'Google US English',
+            name: 'Alex',
             lang: 'en-US'
         },
         spanish: {
-            name: 'Google español de Estados Unidos',
-            lang: 'es-US'
+            name: 'Juan',
+            lang: 'es-MX'
         }
     }
 

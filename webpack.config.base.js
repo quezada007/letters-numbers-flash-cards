@@ -2,6 +2,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 
 // Destination directory
@@ -104,18 +105,6 @@ module.exports = {
                 }
             },
             /**
-             * Load all the background images used in the SCSS files
-             */
-            {
-                test: /\.(png|jpg|gif|svg)$/,
-                loader: 'file-loader',
-                options: {
-                    name: '[name].[hash:8].[ext]',
-                    publicPath: '../bg-img/',
-                    outputPath: 'bg-img/'   // Background images folder is bg-img
-                }
-            },
-            /**
              * Compile pug files and place them in the dist folder
              * https: //pugjs.org/api/getting-started.html
              */
@@ -142,6 +131,10 @@ module.exports = {
             filename: 'index.html',
             inject: true
         }),
+        new CopyPlugin([
+            { from: 'src/images', to: 'images' },
+            { from: 'src/manifest.json', to: 'manifest.json' }
+        ]),
         /* new WorkboxPlugin.GenerateSW({
             clientsClaim: true,
             skipWaiting: true

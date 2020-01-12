@@ -133,7 +133,7 @@ module.exports = {
         }),
         new CopyPlugin([
             { from: 'src/images', to: 'images' },
-            { from: 'src/manifest.json', to: 'manifest.json' }
+            { from: 'src/manifest.webmanifest', to: 'manifest.webmanifest' }
         ]),
         /* new WorkboxPlugin.GenerateSW({
             clientsClaim: true,

@@ -252,4 +252,12 @@ $icomoon-root: '../fonts/' !default;
     &-trash:before {
         content: "\f1f8";
     }
+
+    &-volume-high:before {
+        content: "\ea26";
+    }
+
+    &-volume-mute2:before {
+        content: "\ea2a";
+    }
 }

@@ -64,8 +64,8 @@ export default class Letters extends React.Component {
         const { currentLanguage, isMuted, toggleMute } = this.props;
         const heading = currentLanguage === 'english' ? 'Letters in English' : 'Letras en Español';
         const cardClass = `cards__card cards__card--${currentLetter % 14}`;
-        const volumeIcon = isMuted ? 'icon-volume-high' : 'icon-volume-mute2';
-        const ariaVolume = isMuted ? 'Volume On' : 'Volume Off';
+        const volumeIcon = isMuted ? 'icon-volume-mute2' : 'icon-volume-high';
+        const ariaVolume = isMuted ? 'Volume Off' : 'Volume On';
         return (
             <div className="cards cards--letters">
                 <h1 className="cards__heading">{heading}</h1>

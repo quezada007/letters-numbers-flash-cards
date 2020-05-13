@@ -61,8 +61,8 @@ export default class Numbers extends React.Component {
         const heading = currentLanguage === 'english' ? 'Numbers in English' : 'Números en Español';
         const digitsClass = currentNumber > 99 ? 'cards__number cards__number--3-digits' : 'cards__number';
         const cardClass = `cards__card cards__card--${currentNumber % 14}`;
-        const volumeIcon = isMuted ? 'icon-volume-up' : 'icon-volume-off';
-        const ariaVolume = isMuted ? 'Volume Up' : 'Volume Off';
+        const volumeIcon = isMuted ? 'icon-volume-mute2' : 'icon-volume-high';
+        const ariaVolume = isMuted ? 'Volume Off' : 'Volume On';
         return (
             <div className="cards cards--numbers">
                 <h1 className="cards__heading">{heading}</h1>

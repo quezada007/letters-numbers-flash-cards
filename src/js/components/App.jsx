@@ -15,11 +15,9 @@ class App extends React.Component {
 
     voice = {
         english: {
-            name: 'Alex',
             lang: 'en-US'
         },
         spanish: {
-            name: 'Juan',
             lang: 'es-MX'
         }
     }
@@ -43,10 +41,10 @@ class App extends React.Component {
         });
     }
 
-    changeVoice = (currentLanguage) => {
-        const currentVoice = this.voice[currentLanguage];
-        [this.msg.voice] = speechSynthesis.getVoices().filter((voice) => voice.name === currentVoice.name);
-        this.msg.lang = this.voice[currentLanguage].lang;
+    changeVoice = (newLanguage) => {
+        const currentVoice = this.voice[newLanguage];
+        [this.msg.voice] = speechSynthesis.getVoices().filter((voice) => voice.lang === currentVoice.lang);
+        this.msg.lang = this.voice[newLanguage].lang;
     }
 
     changeLanguage = () => {

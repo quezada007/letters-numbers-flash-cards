@@ -1,9 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Hammer from 'hammerjs';
 import { numbers, numbersAmount } from '../lib/numbers';
+import { toggleMute as toggleMuteAction } from '../actions';
 
-export default class Numbers extends React.Component {
+class Numbers extends React.Component {
     constructor(props) {
         super(props);
 
@@ -86,3 +88,14 @@ Numbers.propTypes = {
     isMuted: PropTypes.bool.isRequired,
     toggleMute: PropTypes.func.isRequired
 };
+
+const mapStateToProps = (state) => ({
+    currentLanguage: state.controls.currentLanguage,
+    isMuted: state.controls.isMuted
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    toggleMute: () => dispatch(toggleMuteAction())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Numbers);

@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link, useRouteMatch } from 'react-router-dom';
 
@@ -7,7 +8,7 @@ const Nav = ({ currentLanguage }) => {
         path: '/',
         isExact: true
     });
-
+    const language = currentLanguage === 'english' ? 'English' : 'Español';
     return (
         <nav className="nav">
             {match.isExact ? null : (
@@ -16,7 +17,7 @@ const Nav = ({ currentLanguage }) => {
                     <span className="sr-only">Go Back</span>
                 </Link>
             )}
-            <div className="nav__language">{currentLanguage}</div>
+            <div className="nav__language">{language}</div>
         </nav>
     );
 };
@@ -25,4 +26,8 @@ Nav.propTypes = {
     currentLanguage: PropTypes.string.isRequired
 };
 
-export default Nav;
+const mapStateToProps = (state) => ({
+    currentLanguage: state.controls.currentLanguage
+});
+
+export default connect(mapStateToProps)(Nav);

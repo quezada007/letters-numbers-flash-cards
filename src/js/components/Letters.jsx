@@ -1,9 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Hammer from 'hammerjs';
 import letters from '../lib/letters';
+import { toggleMute as toggleMuteAction } from '../actions';
 
-export default class Letters extends React.Component {
+class Letters extends React.Component {
     constructor(props) {
         super(props);
 
@@ -89,3 +91,14 @@ Letters.propTypes = {
     isMuted: PropTypes.bool.isRequired,
     toggleMute: PropTypes.func.isRequired
 };
+
+const mapStateToProps = (state) => ({
+    currentLanguage: state.controls.currentLanguage,
+    isMuted: state.controls.isMuted
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    toggleMute: () => dispatch(toggleMuteAction())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Letters);

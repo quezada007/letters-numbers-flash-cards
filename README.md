@@ -16,7 +16,7 @@ To start development, run the following command on your Terminal:
 npm run start
 ```
 
-To view your project, open the browser to http://localhost:8080
+To view your project, open the browser to http://localhost:3000
 
 ### Production
 

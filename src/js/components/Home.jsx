@@ -10,7 +10,7 @@ class Home extends React.Component {
         const newLanguage = currentLanguage === 'english' ? 'spanish' : 'english';
         const newVoice = currentLanguage === 'english' ? 'es-MX' : 'en-US';
         changeLanguage(newLanguage);
-        [msg.voice] = speechSynthesis.getVoices().filter((voice) => voice.lang === newVoice.lang);
+        [msg.voice] = speechSynthesis.getVoices().filter((voice) => voice.lang === newVoice);
         msg.lang = newVoice;
     }
 

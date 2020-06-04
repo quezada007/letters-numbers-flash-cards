@@ -12,6 +12,8 @@ class App extends React.Component {
         super(props);
 
         this.msg = new SpeechSynthesisUtterance();
+        // Set the default language to English
+        [this.msg.voice] = speechSynthesis.getVoices().filter((voice) => voice.lang === 'en-US');
     }
 
     render() {
